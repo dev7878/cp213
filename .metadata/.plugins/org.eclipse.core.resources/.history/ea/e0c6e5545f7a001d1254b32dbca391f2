@@ -1,0 +1,20 @@
+
+import java.lang.invoke.StringConcatFactory;
+import java.util.Scanner;
+
+public class test {
+	public static void main(String[] args) {
+		Scanner keybScanner = new Scanner(System.in);
+		int n = keybScanner.nextInt();
+		String s1 = keybScanner.nextLine();
+		String s2 = keybScanner.nextLine();
+		System.out.println(n);
+		System.out.println(s1);
+		System.out.println(s2);
+		String s = name();
+	}
+
+	public final void name() {
+		System.out.println("final test");
+	}
+}

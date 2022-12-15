@@ -1,0 +1,32 @@
+"""
+-------------------------------------------------------
+testing.txt
+CP213 Documentation Lab Testing
+-------------------------------------------------------
+Author:  Dev Patel
+ID:      212325400
+Email:   pate5400@mylaurier.ca
+Version: 2022-11-03
+-------------------------------------------------------
+"""
+Test scannerTest
+
+Enter an integer(0 to stop): 2
+Enter an integer('Quit' to stop): no
+Enter an integer('Quit' to stop): 3
+Enter an integer('Quit' to stop): quit
+Total: 5
+
+Test stringPrinter
+hey!hey!hey!
+
+getMessage:
+Please Enter a Positive Number!
+
+toString:
+java.lang.Exception: Please Enter a Positive Number!
+
+printStackTrace:
+java.lang.Exception: Please Enter a Positive Number!
+	at cp213.Main.stringPrinter(Main.java:96)
+	at cp213.Main.main(Main.java:26)

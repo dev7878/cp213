@@ -1,0 +1,215 @@
+"""
+-------------------------------------------------------
+testing.txt
+CP213 Documentation assignment Testing
+-------------------------------------------------------
+Author:  Dev Patel
+ID:      212325400
+Email:   pate5400@mylaurier.ca
+Version: 2022-11-05
+-------------------------------------------------------
+"""
+SingleLink Data Structures Tests
+
+Tests are of the form:
+  Test Operation {expected value}: actual value
+  Contents: [contents from front to rear]
+
+================================================================================
+Testing SingleStack
+----------------------------------------
+SingleStack<Integer> source = new SingleStack<>();
+  isEmpty {true}: true
+----------------------------------------
+Push values: [35, 30, 11, 5, 29, 16, 21]
+  push: 35
+  push: 30
+  push: 11
+  push: 5
+  push: 29
+  push: 16
+  push: 21
+  isEmpty {false}: false
+  peek {21}: 21
+  Contents: [21, 16, 29, 5, 11, 30, 35]
+----------------------------------------
+source.splitAlternate(left, right)
+source
+  isEmpty {true}: true
+  Contents: []
+left
+  isEmpty {false}: false
+  peek {35}: 35
+  Contents: [35, 11, 29, 21]
+right
+  isEmpty {false}: false
+  peek {30}: 30
+  Contents: [30, 5, 16]
+----------------------------------------
+target.combine(left, right)
+target
+  isEmpty {false}: false
+  peek {21}: 21
+  Contents: [21, 16, 29, 5, 11, 30, 35]
+left
+  isEmpty {true}: true
+  Contents: []
+right
+  isEmpty {true}: true
+  Contents: []
+----------------------------------------
+Clear target
+  Pop {21}: 21
+  Pop {16}: 16
+  Pop {29}: 29
+  Pop {5}: 5
+  Pop {11}: 11
+  Pop {30}: 30
+  Pop {35}: 35
+
+================================================================================
+Testing SingleQueue
+----------------------------------------
+SingleQueue<Integer> source = new SingleQueue<>();
+  isEmpty {true}: true
+----------------------------------------
+Insert values: [24, 18, 46, 9, 36, 13, 40]
+  insert: 24
+  insert: 18
+  insert: 46
+  insert: 9
+  insert: 36
+  insert: 13
+  insert: 40
+  isEmpty {false}: false
+  peek {24}: 24
+  Contents: [24, 18, 46, 9, 36, 13, 40]
+----------------------------------------
+source.splitAlternate(left, right)
+source
+  isEmpty {true}: true
+  Contents: []
+left
+  isEmpty {false}: false
+  peek {24}: 24
+  Contents: [24, 46, 36, 40]
+right
+  isEmpty {false}: false
+  peek {18}: 18
+  Contents: [18, 9, 13]
+----------------------------------------
+target.combine(left, right)
+target
+  isEmpty {false}: false
+  peek {24}: 24
+  Contents: [24, 18, 46, 9, 36, 13, 40]
+left
+  isEmpty {true}: true
+  Contents: []
+right
+  isEmpty {true}: true
+  Contents: []
+----------------------------------------
+Clear target
+  remove {24}: 24
+  remove {18}: 18
+  remove {46}: 46
+  remove {9}: 9
+  remove {36}: 36
+  remove {13}: 13
+  remove {40}: 40
+
+================================================================================
+Testing SinglePriorityQueue
+----------------------------------------
+SinglePriorityQueue<Integer> source = new SinglePriorityQueue<>();
+  isEmpty {true}: true
+----------------------------------------
+Insert values: [5, 1, 4, 0, 24, 15, 27]
+  insert: 5
+  insert: 1
+  insert: 4
+  insert: 0
+  insert: 24
+  insert: 15
+  insert: 27
+  isEmpty {false}: false
+  peek {0}: 0
+  Contents: [0, 1, 4, 5, 15, 24, 27]
+----------------------------------------
+source.splitByKey(5, left, right)
+source
+  isEmpty {true}: true
+  Contents: []
+left
+  isEmpty {false}: false
+  peek {0}: 0
+  Contents: [0, 1, 4]
+right
+  isEmpty {false}: false
+  peek {5}: 5
+  Contents: [5, 15, 24, 27]
+----------------------------------------
+target.combine(left, right)
+target
+  isEmpty {false}: false
+  peek {0}: 0
+  Contents: [0, 1, 4, 5, 15, 24, 27]
+left
+  isEmpty {true}: true
+  Contents: []
+right
+  isEmpty {true}: true
+  Contents: []
+----------------------------------------
+Clear target
+  remove {0}: 0
+  remove {1}: 1
+  remove {4}: 4
+  remove {5}: 5
+  remove {15}: 15
+  remove {24}: 24
+  remove {27}: 27
+
+================================================================================
+Testing SingleList
+----------------------------------------
+SingleList<Integer> source = new SingleList<>();
+  isEmpty {true}: true
+----------------------------------------
+Append values: [49, 8]
+  append: 49
+  append: 8
+  isEmpty {false}: false
+  peek {49}: 49
+  Contents: [49, 8]
+----------------------------------------
+prepend: 22
+  isEmpty {false}: false
+  peek {22}: 22
+  Contents: [22, 49, 8]
+----------------------------------------
+Insert values: [49, 8]
+  insert: (1, 23)
+  insert: (2, 24)
+  insert: (3, 0)
+  insert: (4, 24)
+  isEmpty {false}: false
+  peek {22}: 22
+  Contents: [22, 23, 24, 0, 24, 49, 8]
+----------------------------------------
+contains 999 {false}: false
+contains 0 {true}: true
+----------------------------------------
+find 999 {null}: 
+find 0 {0}: 0
+----------------------------------------
+get 3 {0}: 0
+----------------------------------------
+index 0 {3}: 3
+index 999 {-1}: -1
+----------------------------------------
+max {49}: 49
+min {0}: 0
+----------------------------------------
+Contents: [22, 23, 24, 0, 24, 49, 8]

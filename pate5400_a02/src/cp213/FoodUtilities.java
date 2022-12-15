@@ -1,0 +1,216 @@
+package cp213;
+
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ * Utilities for working with Food objects.
+ *
+ * @author Dev Patel, 212325400,pate5400@mylaurier.ca
+ * @version 2022-10-14
+ */
+public class FoodUtilities {
+
+	/**
+	 * Determines the average calories in a list of foods. No rounding necessary.
+	 * Foods list parameter may be empty.
+	 *
+	 * @param foods a list of Food
+	 * @return average calories in all Food objects
+	 */
+	public static int averageCalories(final ArrayList<Food> foods) {
+
+		// your code here
+
+		int count = 0;
+		int sum = 0;
+		for (Food i : foods) {
+			sum += i.getCalories();
+			count++;
+		}
+		int avg = sum / count;
+		return avg;
+	}
+
+	/**
+	 * Determines the average calories in a list of foods for a particular origin.
+	 * No rounding necessary. Foods list parameter may be empty.
+	 *
+	 * @param foods  a list of Food
+	 * @param origin the origin of the Food
+	 * @return average calories for all Foods of the specified origin
+	 */
+	public static int averageCaloriesByOrigin(final ArrayList<Food> foods, final int origin) {
+
+		// your code here
+		int count = 0;
+		int sum = 0;
+		for (Food i : foods) {
+			if (i.getOrigin() == origin) {
+				sum += i.getCalories();
+				count++;
+			}
+
+		}
+		int avg = sum / count;
+
+		return avg;
+	}
+
+	/**
+	 * Creates a list of foods by origin.
+	 *
+	 * @param foods  a list of Food
+	 * @param origin a food origin
+	 * @return a list of Food from origin
+	 */
+	public static ArrayList<Food> getByOrigin(final ArrayList<Food> foods, final int origin) {
+
+		// your code here
+		ArrayList<Food> by_origin_list = new ArrayList<Food>();
+		for (Food i : foods) {
+			if (i.getOrigin() == origin) {
+				by_origin_list.add(i);
+			}
+		}
+		return by_origin_list;
+	}
+
+	/**
+	 * Creates a Food object by requesting data from a user. Uses the format:
+	 *
+	 * <pre>
+	Name: name
+	Origins
+	 0 Canadian
+	 1 Chinese
+	...
+	11 English
+	Origin: origin number
+	Vegetarian (Y/N): Y/N
+	Calories: calories
+	 * </pre>
+	 *
+	 * @param keyboard a keyboard Scanner
+	 * @return a Food object
+	 */
+	public static Food getFood(final Scanner keyboard) {
+
+		// your code here
+		String name = "";
+		System.out.print("Name: ");
+		name = keyboard.next();
+		System.out.print("0 Canadian\r\n" + " 1 Chinese\r\n" + " 2 Indian\r\n" + " 3 Ethiopian\r\n" + " 4 Mexican\r\n"
+				+ " 5 Greek\r\n" + " 6 Japanese\r\n" + " 7 Italian\r\n" + " 8 Moroccan\r\n" + " 9 Scottish\r\n"
+				+ "10 Columbian\r\n" + "11 English\r\n" + "Origin: ");
+		int origin = keyboard.nextInt();
+		System.out.print("Vegetarin (Y/N): ");
+		boolean veg = false;
+		if (keyboard.next().equalsIgnoreCase("Y")) {
+			veg = true;
+		}
+		System.out.print("Calories: ");
+
+		int calories = keyboard.nextInt();
+		Food newFood = new Food(name, origin, veg, calories);
+		return newFood;
+	}
+
+	/**
+	 * Creates a list of vegetarian foods.
+	 *
+	 * @param foods a list of Food
+	 * @return a list of vegetarian Food
+	 */
+	public static ArrayList<Food> getVegetarian(final ArrayList<Food> foods) {
+
+		// your code here
+		ArrayList<Food> veg_list = new ArrayList<Food>();
+		for (Food i : foods) {
+			if (i.isVegetarian() == true) {
+				veg_list.add(i);
+			}
+		}
+		return veg_list;
+	}
+
+	/**
+	 * Creates and returns a Food object from a line of string data.
+	 *
+	 * @param line a vertical bar-delimited line of food data in the format
+	 *             name|origin|isVegetarian|calories
+	 * @return the data from line as a Food object
+	 */
+	public static Food readFood(final String line) {
+
+		// your code here
+		String[] food_line = line.split("\\|");
+		String name = food_line[0];
+		int origin = Integer.parseInt(food_line[1]);
+		Boolean isVeg = Boolean.parseBoolean(food_line[2]);
+		int calories = Integer.parseInt(food_line[3]);
+		Food new_food = new Food(name, origin, isVeg, calories);
+		return new_food;
+	}
+
+	/**
+	 * Reads a file of food strings into a list of Food objects.
+	 *
+	 * @param fileIn a Scanner of a Food data file in the format
+	 *               name|origin|isVegetarian|calories
+	 * @return a list of Food
+	 */
+	public static ArrayList<Food> readFoods(final Scanner fileIn) {
+
+		// your code here
+		ArrayList<Food> food_list = new ArrayList<Food>();
+		while (fileIn.hasNextLine()) {
+			food_list.add(readFood(fileIn.nextLine()));
+		}
+
+		return food_list;
+	}
+
+	/**
+	 * Searches for foods that fit certain conditions.
+	 *
+	 * @param foods        a list of Food
+	 * @param origin       the origin of the food; if -1, accept any origin
+	 * @param maxCalories  the maximum calories for the food; if 0, accept any
+	 * @param isVegetarian whether the food is vegetarian or not; if false accept
+	 *                     any
+	 * @return a list of foods that fit the conditions specified
+	 */
+	public static ArrayList<Food> foodSearch(final ArrayList<Food> foods, final int origin, final int maxCalories,
+			final boolean isVegetarian) {
+
+		// your code here
+		ArrayList<Food> search_list = new ArrayList<Food>();
+		for (Food i : foods) {
+			if ((i.getOrigin() == origin || origin == -1) && (i.getCalories() < maxCalories || maxCalories == 0)
+					&& (i.isVegetarian() || isVegetarian == false)) {
+				search_list.add(i);
+			}
+
+		}
+
+		return search_list;
+	}
+
+	/**
+	 * Writes the contents of a list of Food to a PrintStream.
+	 *
+	 * @param foods a list of Food
+	 * @param ps    the PrintStream to write to
+	 */
+	public static void writeFoods(final ArrayList<Food> foods, PrintStream ps) throws FileNotFoundException {
+
+		// your code here
+		for (final Food food : foods) {
+			food.write(ps);
+		}
+
+	}
+}

@@ -1,0 +1,175 @@
+package cp213;
+
+/**
+ * @author Your name and id here
+ * @version 2022-09-23
+ */
+public class Strings {
+	// Constants
+	public static final String VOWELS = "aeiouAEIOU";
+
+	/**
+	 * Determines if string is a "palindrome": a word, verse, or sentence (such as
+	 * "Able was I ere I saw Elba") that reads the same backward or forward. Ignores
+	 * case, spaces, digits, and punctuation in the string parameter s.
+	 *
+	 * @param string a string
+	 * @return true if string is a palindrome, false otherwise
+	 */
+	public static boolean isPalindrome(final String string) {
+
+		// your code here
+		boolean check = true;
+		String temp1 = string.replaceAll("\\s+", "").toLowerCase();
+		String temp2 = temp1.replaceAll("\\p{Punct}", "");
+		String temp = temp2.replaceAll("\\d", "");
+
+		int len = temp.length();
+		int start = 0;
+		int end = len - 1;
+		while (end > start) {
+			char startchar = temp.charAt(start++);
+			char endchar = temp.charAt(end--);
+			if (startchar != endchar) {
+				check = false;
+			}
+		}
+
+		return check;
+	}
+
+	/**
+	 * Determines if name is a valid Java variable name. Variables names must start
+	 * with a letter or an underscore, but cannot be an underscore alone. The rest
+	 * of the variable name may consist of letters, numbers and underscores.
+	 *
+	 * @param name a string to test as a Java variable name
+	 * @return true if name is a valid Java variable name, false otherwise
+	 */
+	public static boolean isValid(final String name) {
+
+		// your code here
+		boolean check = true;
+		if (name.length() == 1) {
+			if (!(name.charAt(0) >= 'a' && name.charAt(0) <= 'z' || name.charAt(0) >= 'A' && name.charAt(0) <= 'Z')) {
+				check = false;
+			}
+		} else {
+			if (!(name.charAt(0) >= 'a' && name.charAt(0) <= 'z' || name.charAt(0) >= 'A' && name.charAt(0) <= 'Z'
+					|| name.charAt(0) == '_')) {
+				check = false;
+			}
+			for (int i = 1; i < name.length(); i++) {
+				if (!(name.charAt(i) >= 'a' && name.charAt(i) <= 'z' || name.charAt(i) >= 'A' && name.charAt(i) <= 'Z'
+						|| name.charAt(i) == '_' || name.charAt(i) >= '0' && name.charAt(i) <= '9')) {
+					check = false;
+
+				}
+			}
+		}
+
+		return check;
+	}
+
+	/**
+	 * Converts a word to Pig Latin. The conversion is:
+	 * <ul>
+	 * <li>if a word begins with a vowel, add "way" to the end of the word.</li>
+	 * <li>if the word begins with consonants, move the leading consonants to the
+	 * end of the word and add "ay" to the end of that. "y" is treated as a
+	 * consonant if it is the first character in the word, and as a vowel for
+	 * anywhere else in the word.</li>
+	 * </ul>
+	 * Preserve the case of the word - i.e. if the first character of word is
+	 * upper-case, then the new first character should also be upper case.
+	 *
+	 * @param word The string to convert to Pig Latin
+	 * @return the Pig Latin version of word
+	 */
+	public static String pigLatin(String word) {
+
+		// your code here // convert the string to an array of chars
+		char[] chars = word.toCharArray();
+		char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+		char first = chars[0];
+		String latin = "";
+		// see if the first character is a vowel by doing a linear search of the vowels
+		// array
+		boolean vowel = false;
+		int i = 0;
+		while (!vowel && i < 5) {
+			if (first == vowels[i]) {
+				vowel = true;
+			}
+			i++;
+		}
+		// if it's a vowel add "way" to the end of the word
+		if (vowel) {
+			latin = word + "way";
+		}
+		// move the consonants until you get a vowel
+		else {
+			char[] vowelsAndY = { 'a', 'e', 'i', 'o', 'u', 'y' };
+			// find the first vowel
+			int len = word.length();
+			int x = 0;
+			boolean found = false;
+			// loop through each character and check each character
+			// stop when a vowel is found
+			while (!found && x < len) {
+				char temp = chars[x];
+				int y = 0;
+				boolean isVowel = false;
+				while (!isVowel && y < 6) {
+					if (temp == vowelsAndY[y]) {
+						isVowel = true;
+						found = true;
+					}
+					y++;
+				}
+				x++;
+			}
+			// check if no vowels were found
+			if (x == len) {
+				latin = word + "ay";
+			} else {
+				x -= 1;
+				// check if first character was upper case
+				boolean upper = false;
+				Character f = new Character(first);
+				if (Character.isUpperCase(f)) {
+					upper = true;
+				}
+				// move chars
+				// make two arrays one for each half of the word
+				int mover = 0;
+				char[] beginning = new char[x];
+				char[] rest = new char[word.length() - x];
+				while (mover < x) {
+					beginning[mover] = chars[mover];
+					mover++;
+				}
+				int mover2 = 0;
+				while (mover < word.length()) {
+					rest[mover2] = chars[mover];
+					mover++;
+					mover2++;
+				}
+				// conserve case if need be
+				if (upper) {
+					beginning[0] = Character.toLowerCase(f);
+					rest[0] = Character.toUpperCase(rest[0]);
+				}
+				// combine the two arrays and add the ending
+
+				latin = String.valueOf(rest) + String.valueOf(beginning) + "ay";
+			}
+
+		}
+
+		return latin;
+
+		return null;
+	}
+
+}

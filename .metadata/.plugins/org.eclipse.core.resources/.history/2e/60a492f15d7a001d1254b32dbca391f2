@@ -1,0 +1,10 @@
+
+import java.util.*;
+
+import javax.swing.plaf.basic.BasicSplitPaneUI.KeyboardDownRightHandler;
+public class test {
+	public static void main(String[] args) {
+		Scanner keybScanner =  new Scanner(System.in);
+		int n = Keyboard
+	}
+}

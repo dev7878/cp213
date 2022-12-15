@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+	</section>
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.FileSystem"/>
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.equinox.p2.category"/>
+			<item value="org.eclipse.jdt.ui.Java"/>
+		</list>
+	</section>
+	<section name="FileSystemImportWizard">
+		<item key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID" value="false"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\devsa\Downloads\kashipara.com_students-result-management"/>
+			<item value="C:\Users\devsa\Downloads\Exception\ch09"/>
+			<item value="C:\Users\devsa\Downloads\Polymorphism and Abstract Classes\ch08"/>
+			<item value="C:\Users\devsa\Downloads\A05Given\A05Given\src"/>
+			<item value="C:\Users\devsa\Downloads\LabGuiGiven\LabGuiGiven\src"/>
+			<item value="C:\Users\devsa\Downloads\A04Given (1)\A04Given\src"/>
+			<item value="C:\Users\devsa\Downloads\triangle\Triangle\src\dbrown"/>
+			<item value="C:\Users\devsa\Downloads\triangle\Triangle\src"/>
+			<item value="C:\Users\devsa\Downloads\LabInnerClassesGiven\LabInnerClassesGiven\src"/>
+			<item value="C:\Users\devsa\Downloads\LabExceptionsGiven\LabExceptionsGiven\src"/>
+			<item value="C:\Users\devsa\Downloads\A03Given\A03Given\src"/>
+			<item value="C:\Users\devsa\Downloads\A03Given\A03Given\src\cp213"/>
+			<item value="C:\Users\devsa\Downloads\LabInheritanceGiven (2)\LabInheritanceGiven\src\cp213"/>
+			<item value="C:\Users\devsa\Downloads\LabInheritanceGiven (2)\LabInheritanceGiven\src"/>
+			<item value="C:\Users\devsa\Downloads\LabArraysGiven\LabArraysGiven\src\cp213"/>
+			<item value="C:\Users\devsa\Downloads\LabArraysGiven\LabArraysGiven\src"/>
+			<item value="C:\Users\devsa\Downloads\arci4570_a02\arci4570_a02\src"/>
+			<item value="C:\Users\devsa\Downloads\A02Given\A02Given\src"/>
+			<item value="C:\Users\devsa\Downloads\sample code 4\ch04"/>
+			<item value="C:\Users\devsa\Downloads\LabClassesGiven\LabClassesGiven\src"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="S:\dev uni study\Cp 213\Labs\pate5400_l06.zip"/>
+			<item value="S:\dev uni study\Cp 213\Assignment\pate5400_a03.zip"/>
+			<item value="S:\dev uni study\Cp 213\Labs\pate5400_l05.zip"/>
+			<item value="S:\dev uni study\Cp 213\Labs\pate5400_l04.zip"/>
+			<item value="S:\dev uni study\Cp 213\Assignment\pate5400_a02.zip"/>
+			<item value="S:\dev uni study\Cp 213\Labs\pate5400_l03.zip"/>
+			<item value="S:\dev uni study\Cp 213\Assignment\pate5400_a01.zip"/>
+			<item value="S:\dev uni study\Cp 213\Labs\pate5400_l02.zip"/>
+			<item value="S:\dev uni study\Cp 213\Labs\pate5400_l1.zip"/>
+		</list>
+	</section>
+	<section name="ZipFileImportWizard">
+		<item key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\devsa\Downloads\a01Given.zip"/>
+		</list>
+	</section>
+</section>
